@@ -179,7 +179,7 @@ ssh root@localhost -p 5555
 For this exercise, use the official Rust-for-Linux repository. For complete reproducibility, using a fixed commit hash would be even better, but this example tracks the rust-next branch.
 
 ```sh
-git clone --depth 1 -b rust-next https://github.com/Rust-for-Linux/linux
+git clone --depth 1 -b rust-next https://github.com/rust-augsburg/linux
 cd linux
 ```
 
@@ -271,7 +271,7 @@ In addition to the in-tree Rust samples provided by the kernel source, you can a
 
 ```sh
 cd ~
-git clone https://github.com/Rust-for-Linux/rust-out-of-tree-module
+git clone https://github.com/rust-augsburg/rust-out-of-tree-module
 cd rust-out-of-tree-module
 make KDIR=../linux LLVM=1
 insmod rust_out_of_tree.ko
