@@ -126,6 +126,7 @@ growpart "$single_disk" 1
 
 # Resize it
 resize2fs "$single_disk"1
+reboot
 ```
 
 ## Setup Kernel Build Tools
