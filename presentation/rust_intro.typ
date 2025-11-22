@@ -116,6 +116,12 @@ tiaoma.qrcode("https://github.com/rust-augsburg/rust-for-linux-workshop", option
   - Matching and enumerations
   - No implicit copies of data structures
 
+== A recent example...
+
+#align(center,
+  image("img/cloudflare-error.webp")
+)
+
 = History
 
 == Rust
@@ -233,7 +239,7 @@ fn main() {
 = Ownership
 == Let's explore...
 
-#slide(repeat: 6, self => [
+#slide(repeat: 7, self => [
   #let (uncover, only, alternatives) = utils.methods(self)
 
   #align(center + horizon,
@@ -255,12 +261,55 @@ fn main() {
     ```
   ][
     ```rust
+    let aaron = michael;
+    ```
+  ][
+    ```rust
     let aaron = michael;   // Ownership was transferred
     ```
   ][
     ```rust
     let aaron = michael;   // Ownership was transferred
     do_something(michael); // Error!
+    ```
+  ])
+  #v(1em)
+])
+
+== References
+
+#slide(repeat: 5, self => [
+  #let (uncover, only, alternatives) = utils.methods(self)
+
+  #align(center + horizon,
+  alternatives[
+    ```rust
+    let michael = String::from("Michael");
+    ```
+  ][
+    ```rust
+    let michael = String::from("Michael");
+    let aaron = &michael;
+    ```
+  ][
+    ```rust
+    let michael = String::from("Michael");
+    let aaron = &michael;
+    let georg = &michael;
+    ```
+  ][
+    ```rust
+    let michael = String::from("Michael");
+    let aaron = &michael;
+    let georg = &michael;
+    do_something(aaron);
+    do_something(georg);
+    ```
+  ][
+    ```rust
+    let mut michael = String::from("Michael");
+    let aaron = &mut michael; // No problem so far
+    let georg = &michael;     // Error!
     ```
   ])
   #v(1em)
@@ -319,3 +368,21 @@ fn dangle() -> &String {
 
 ```rust
 ```
+
+= Procinfo exercise
+
+#let url="https://github.com/rust-augsburg/procinfo-rust-exercise"
+#align(center,
+  tiaoma.qrcode(url, options: (scale: 5.0, fg-color: white, bg-color: black.transparentize(100%)))
+)
+
+== Procinfo exercise
+
+Idea: Top-like app to read files in `/proc` and output interesting information.
+
+== Kernel Setup
+
+#let url = "https://github.com/rust-augsburg/rust-for-linux-workshop/blob/main/dev-setup.md"
+#align(center,
+  tiaoma.qrcode(url, options: (scale: 5.0, fg-color: white, bg-color: black.transparentize(100%)))
+)
